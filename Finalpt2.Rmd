@@ -1,0 +1,94 @@
+---
+title: "Shravya Kanchanapally - Final Part 2"
+author: "Shravya Kanchanapally"
+date: "2026-02-20"
+output: pdf_document
+---
+
+# Introduction
+Game-Based Learning (GBL) is a test that works to understand the impact of GBL on bachelor level accounting students to investigate impact on accounting knowledge by comparing digital games to business simulations as pedagogical tools. The dataset contains survey
+responses and derived variables from 200 bachelor-level accounting students, and can be utilized for econometric analysis and educational research. 
+
+The dataset includes demographic variables, exposure to game-based learning,
+Digital Games, Business Simulations, and Sustainable Knowledge Acquisition (SKA)
+measures.
+
+The objectives for analysis can be summarized into two distinct points. One is to describe and track the distribution of key variables across the sample. The other is to examine the differences in SKA scores between the respective bachelor-level students with and without GBL exposure.
+
+
+# Loading in Datasets
+``` {r, load-dataset, echo=FALSE}
+data <- "https://dataverse.harvard.edu/api/access/datafile/13321260"
+GBLdata1 <- read.csv(data, header=TRUE)
+head(GBLdata1)
+
+data2 <- "https://dataverse.harvard.edu/api/access/datafile/13321262"
+GBLdata2 <- read.csv(data2, header=TRUE, sep="\t")
+head(GBLdata2)
+
+```
+
+# Creating Tables
+``` {r, create-a-table, echo=FALSE}
+knitr::kable(head(GBLdata1), 
+             caption = "__GBL Dataset 1__",
+             digits = 2,          
+             align = "c",        
+             col.names = colnames(GBLdata1))  
+
+knitr::kable(head(GBLdata2), 
+             caption = "__GBL Dataset 2__",
+             digits = 2,
+             align = "c",
+             col.names = colnames(GBLdata2))
+``` 
+
+
+# Description of Tables
+
+Table 1 (GBLdata1) shows regression output with prominent variables like GBL_Exposure, DigitalGames, BusinessSimulations, and Gender. One thing to note here is that all variables except Gender show statistically significant coefficients, with BusinessSimulations having the largest effect at 1.95. Gender however is depicted at -0.62, meaning that one gender is having less outcomes compared to the other. However, the bridge between both genders is less than 1, we can assume that gender does not have meaningful impact towards the aim of this study. 
+
+Table 2 (GBLdata2) shows raw survey data based on student-level observations and reportings such as GBL exposure, Gaming Habits (DigitalGames and BusinessSimulations), Demographics (Gender), Academic Background which is shown through PreviousGPA, and Study Behavior (WeeklyStudyHours). Due to the onset of this data beinf self-report and observations, we can predict that the raw data was susceptible to recall bias on major factors such as WeeklyStudyHours and Gaming Habits. 
+
+
+# Creating Figures
+``` {r, create-a-figure, echo=FALSE}
+# colnames(GBLdata1)
+# colnames(GBLdata2)
+
+# nrow(GBLdata1)
+# colnames(GBLdata1)
+
+library(ggplot2)
+
+ggplot(GBLdata1, aes(x = X, y = coef)) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  theme_bw()
+
+ggplot(GBLdata2, aes(x = PreviousGPA, y = SKA)) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  theme_bw()
+``` 
+
+
+# Description of Figures
+__Figure 1 (GBLdata1)__ shows a scatter plot representing coefficients through regression results. One thing we can note here is an outlier at the constant which is shown to be approximately ~68. All the other variables of this dataset are shown to have much smaller coefficients in comparision, with almost all being close to 0. One connection to the tables we can make here is that Gender's coefficient is marked at less than 0, which aligns with it's -0.62 output. This can further out assumption that Gender does not have a significant meaningful impact on the results of the study. 
+
+__Figure 2 (GBLdata2)__ shows a dense scatterplot comparing PreviousGPA to SKA scores. There is a best fit trend line which shows a slight increase in SKA scores as GPA's increase as well. This can indicate to us that the students with higher GPA tend to score higher in SKA's compared to those with lower GPA's. However, one thing we can note here is that there are several high SKA scores regardless of GPA ranking. Although GPA shows a positive relationship, we can determine here that it is not the best fit variable for comparision, as results vary across the plot with no determined relationship.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
