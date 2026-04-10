@@ -17,3 +17,6 @@ The code for obtaining the tables, can be located in Finalpt2.Rmd in the code ch
 
 # Code for Figure
 The code for obtaining the tables, can be located in Finalpt2.Rmd in the code chunk labeled "create-a-figure". 
+
+# Reproducible 
+In order to make the file reproducible run "make install" in the terminal for all updated changes to appear and restore package. 
