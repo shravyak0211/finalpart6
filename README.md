@@ -1,4 +1,4 @@
-# Shravya Kanchanapally - Final Part 4
+# Shravya Kanchanapally - Final Part 8
 
 # Contents of Repository
 This repository containts data that analyzes Game-Based Learning (GBL), which is a test to understand 
@@ -20,3 +20,18 @@ The code for obtaining the tables, can be located in Finalpt2.Rmd in the code ch
 
 # Reproducible 
 In order to make the file reproducible run "make install" in the terminal for all updated changes to appear and restore package. 
+
+#Dockerhub
+## Rule to Build Docker Image
+The Dockerhub image can be accessed on my Dockerhub account at https://hub.docker.com/r/shravyak0211/final_report
+
+## Rule to build the report automatically in container
+Make sure that Docker is installed on desktop, and report should build automatically. 
+
+## Mac/Linux-OS System
+In order to generate the report on a Mac, type in "make report" in the terminal of RStudio. Once the command is entered into the
+terminal, then the report will generate. 
+
+## Windows-OS System
+In order to generate the report on Windows, type in "make report-win" in the terminal of RStudio. Once the command is entered into 
+the terminal, then the report will generate. 
