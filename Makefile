@@ -9,8 +9,8 @@ install:
 	
 report:
 	mkdir -p output
-	docker run --rm -v "$(PWD)/output":/project/output shravyak0211/final_report
+	docker run --rm -v "$(pwd)/output":/project/output shravyak0211/final_report
 
 report-win:
 	mkdir -p output
-	docker run --rm -v "/$(PWD)/output":/project/output shravyak0211/final_report
+	docker run --rm -v "/$(pwd)/output":/project/output shravyak0211/final_report
