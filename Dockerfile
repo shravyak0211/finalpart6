@@ -1,5 +1,7 @@
 FROM --platform=linux/amd64 rocker/verse:4.4.2
 
+RUN apt-get update && apt-get install -y texlive-latex-extra
+
 RUN R -e "install.packages('renv', repos='https://cloud.r-project.org')"
 
 WORKDIR /project
